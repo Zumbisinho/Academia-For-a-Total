@@ -1,0 +1,165 @@
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 32px;
+}
+
+@media (max-width:770px) {
+    #sectionList {
+        display: none;
+    }
+}
+
+html,
+body {
+    margin: 0;
+    overflow-x: hidden !important
+}
+
+#home {
+    user-select: none;
+    -moz-user-select: none;
+    cursor: pointer;
+}
+
+header h1 {
+    font-size: 1.75rem;
+}
+
+header {
+    background-color: var(--main-color);
+    padding: 0px 0px;
+    color: var(--text-color-primary);
+    font-family: 'Poppins', sans-serif;
+}
+
+header ul,
+header span {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 16px;
+}
+
+header ul li a {
+    color: var(--text-color-secondary);
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+header ul li a:hover {
+    color: #fff;
+}
+
+header .login-button {
+    padding: 6px 32px;
+    display: inline-block;
+    background-color: var(--button-color);
+    color: black;
+    font-weight: bold;
+    border-radius: 100px;
+    transition: all 0.5s ease;
+}
+
+header .login-button:hover {
+    color: #000;
+    transform: scale(1.1);
+    background-color: #fff;
+}
+
+header .logged h2 {
+    margin: 0;
+    font-weight: normal;
+    text-transform: capitalize;
+}
+
+header .logged h1 {
+    margin: 0;
+    font-size: 2rem;
+    text-align: center;
+}
+
+header .foto-wrapper {
+    background-color: rgba(255, 255, 255, 0.1);
+    height: 60px;
+    text-transform: uppercase;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 222px;
+}
+
+header .logged {
+    display: flex;
+    border-radius: 224px;
+    justify-content: center;
+    padding: 0px 24px;
+    user-select: none;
+    padding-right: 0px;
+    background-color: rgba(0, 140, 255, 0.1);
+}
+
+header .logged-options {
+    position: absolute;
+    display: none;
+    top: 80px;
+    z-index: 2;
+    background-color: var(--dark-color);
+    padding: 8px 16px;
+    border-radius: 16px;
+    right: 16px;
+}
+
+header .logged-options span {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 222px;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    margin: 16px 0px;
+}
+
+header .logged-options button {
+    margin: 0;
+}
+
+header .logout-img {
+    filter: invert(1);
+}
+
+header .delete-btn {
+    background-color: rgb(158, 0, 0);
+}
+
+header .logged-options img {
+    aspect-ratio: 1;
+    height: 32px;
+    width: auto;
+}
+
+@media (max-width:770px) {
+    header .logged h2 {
+        font-size: 1rem;
+    }
+    header .logged h1 {
+        font-size: 1.5rem;
+    }
+    header .foto-wrapper {
+        height: 48px;
+        width: 48px;
+    }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+select:-webkit-autofill,
+input:-internal-autofill-selected {
+    -webkit-box-shadow: 0 0 0px 1000px #2e3440 inset !important;
+    -webkit-text-fill-color: #ffffff !important;
+    transition: background-color 9999s ease-in-out 0s;
+}

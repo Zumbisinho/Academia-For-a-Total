@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Academia Força Total</title>
+
+    <!-- Fonte (opcional por enquanto) -->
+    <meta name="color-scheme" content="dark">
+    <link href="https://fonts.googleapis.com/css2?
+family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="static/styles/header.css">
+    <link rel="stylesheet" href="static/styles/colors.css">
+    <link rel="stylesheet" href="static/styles/landing.css">
+    <link rel="stylesheet" href="static/styles/footer.css">
+</head>
+
+
+<body>
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <nav>
+            <span><h1 id="home">Força Total</h1><ul id="sectionList">
+                <li><a href='#' onclick="goToSection('inicio')">Início</a></li>
+                <li><a href='#' onclick="goToSection('sobre')">Sobre</a></li>
+                <li><a href='#' onclick="goToSection('planos')">Planos</a></li>
+                <li><a href='#' onclick="goToSection('treinos')">Treinos</a></li>
+                <li><a href='#' onclick="goToSection('contato')">Contato</a></li>
+
+            </ul></span>
+            <div>
+                <ul class="login-ul">
+                    <li>
+                        <a href="login" class="login-button">Login</a>
+                    </li>
+                </ul>
+                <span class="logged-wrapper" style="display: none;">
+                    <span class="logged" id="logged-btn">
+                        <h2 class="name">teste123</h2>
+                        <span class="foto-wrapper">
+                        <h1 class="foto">T</h1>
+                    </span>
+                <aside class="logged-options">
+                    <span>
+                        <img src="/static/saida.png" alt="" class="logout-img">
+                        <button onclick="window.location.href='/api/v1/logout'">Logout</button></span>
+                    <span>
+                        <img src="/static/lixo.png" alt="" >
+                        <button class="delete-btn" onclick="window.location.href='/api/v1/delete'">Delete</button></span>
+                </aside>
+                </span>
+
+            </div>
+            </span>
+
+        </nav>
+    </header>
+    <div class="bgimg">
+        <div class="herowrapper">
+            <section id="inicio" class="hero ">
+
+                <h2>Transforme seu corpo. Transforme sua vida.</h2>
+
+                <p>Treine com acompanhamento profissional em uma academia completa e moderna.
+                </p>
+                <button onclick="goToSection('contato')">Agende uma aula experimental</button>
+            </section>
+        </div>
+        <div class="fade "></div>
+
+    </div>
+    <!-- ================= HERO ================= -->
+
+    <!-- ================= SOBRE ================= -->
+    <main>
+        <span class="division"></span>
+        <section id="sobre" class="sobre ">
+            <span></span>
+            <div>
+                <h2>Sobre a Academia</h2>
+
+                <p>
+                    A Academia Força Total nasceu com o objetivo de ajudar pessoas a alcançarem saúde, bem-estar e qualidade de vida através do treino e da disciplina. </p>
+            </div>
+        </section>
+
+
+        <!-- ================= PLANOS ================= -->
+        <span class="division"></span>
+        <section id="planos" class="planos ">
+
+            <h2 class="titulo">Nossos Planos</h2>
+
+            <div class="planos-container ">
+
+                <div class="plano">
+                    <span class="preco-cima">
+                                <h3>Plano Básico</h3>
+                                <div class="division"></div>
+                        <div class="preco">
+                            <span>R$</span>
+                    <p>99,90</p>
+                    <span>/ mês</span>
+                </div>
+                </span>
+                <span>
+                    <ul>
+                        <li>
+                            <img src="static/verificar.png" alt="Sim" loading="lazy">
+                            <p>Musculação</p>
+                        </li>
+                        <li class="desativado">
+                            <img src="static/cruz.png" alt="Não" loading="lazy">
+                            <p>Aulas coletivas</p>
+                        </li>
+                        <li class="desativado">
+                            <img src="static/cruz.png" alt="Não" loading="lazy">
+                            <p>Personal Trainer</p>
+                        </li>
+                        <span style="display: flex;justify-content: center;">
+                        <button style="font-size: 1.25rem;padding: 8px 24px;" onclick="buyPlan('básico')">Assinar</button>
+                        </span>
+                </ul>
+
+                </span>
+            </div>
+
+            <div class="plano mid">
+                <span class="preco-cima">
+                        <h3>Plano Completo</h3>
+                        <div class="division"></div>
+                                           <div class="preco">
+                    <span>R$</span>
+                <p>129,90</p>
+                <span>/ mês</span>
+            </div>
+            </span>
+
+            <span>
+<ul>
+                            <li>
+                                <img src="static/verificar.png" alt="Sim" loading="lazy">
+                                <p>Musculação</p>
+                            </li>
+                            <li>
+                                <img src="static/verificar.png" alt="Sim" loading="lazy">
+                                <p>Aulas coletivas</p>
+                            </li>
+                            <li class="desativado">
+                                <img src="static/cruz.png" alt="Não" loading="lazy">
+                                <p>Personal Trainer</p>
+                            </li>
+                                                    <span style="display: flex;justify-content: center;">
+                        <button style="font-size: 1.25rem;padding: 8px 24px;"onclick="buyPlan('completo')">Assinar</button>
+                        </span>
+            </ul>
+            </span>
+            </div>
+
+            <div class="plano">
+                <span class="preco-cima">
+                <h3>Plano Premium</h3>
+                <div class="division"></div>
+                <div class="preco">
+                    <span>R$</span>
+                <p>199,90</p>
+                <span>/ mês</span>
+            </div>
+            </span>
+
+            <span>
+                        <ul>
+                            <li>
+                                <img src="static/verificar.png" alt="Sim" loading="lazy">
+                                <p>Musculação</p>
+                            </li>
+                            <li>
+                                <img src="static/verificar.png" alt="Sim" loading="lazy">
+                                <p>Aulas coletivas</p>
+                            </li>
+                            <li>
+                                <img src="static/verificar.png" alt="Sim" loading="lazy">
+                                <p>Personal Trainer</p>
+                            </li>
+                                                    <span style="display: flex;justify-content: center;">
+                        <button style="font-size: 1.25rem;padding: 8px 24px;"onclick="buyPlan('premium')">Assinar</button>
+                        </span>
+            </ul>
+            </span>
+            </div>
+            </div>
+
+        </section>
+
+        <!-- ================= TREINOS ================= -->
+        <span class="division"></span>
+        <section id="treinos" class="treinos ">
+
+            <h2 class="titulo">Modalidades</h2>
+
+            <ul>
+
+                <li>
+                    <img src="static/modalidades/musculação.png" alt="Musculação" loading="lazy">
+                    <span>
+                        <h2>Musculação</h2>
+                        <p>Treinamento focado no ganho de força, resistência e definição muscular, utilizando pesos e equipamentos variados.</p>
+                    </span>
+                </li>
+                <li>
+                    <img src="static/modalidades/funcional.png" alt="Funcional" loading="lazy">
+                    <span>
+                        <h2>Funcional</h2>
+                        <p>Exercícios dinâmicos que melhoram força, equilíbrio, agilidade e condicionamento físico para o dia a dia.</p>
+                    </span>
+                </li>
+                <li>
+                    <img src="static/modalidades/pilates.png" alt="Pilates" loading="lazy">
+                    <span>
+                        <h2>Pilates</h2>
+                        <p>Método que trabalha alongamento, força e postura, promovendo controle corporal e bem-estar.</p>
+                    </span>
+                </li>
+                <li>
+                    <img src="static/modalidades/spinning.png" alt="Spinning" loading="lazy">
+                    <span>
+                        <h2>Spinning</h2>
+                        <p>Aula intensa em bicicleta estacionária, ideal para queima de calorias e melhora do condicionamento cardiovascular.</p>
+                    </span>
+                </li>
+                <li>
+                    <img src="static/modalidades/muay thai.png" alt="Muay Thai" loading="lazy">
+                    <span>
+                        <h2>Muay Thai</h2>
+                        <p>Arte marcial tailandesa que desenvolve força, resistência, coordenação e autodefesa.</p>
+                    </span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- ================= CONTATO ================= -->
+        <span class="division"></span>
+        <section id="contato" class="contato ">
+            <div class="left">
+                <h2>Entre em Contato</h2>
+
+                <p>Preencha o formulário e fale com nossa equipe</p>
+                <form>
+                    <span>
+                    <p>Nome</p>
+                    <input type="text" placeholder="Seu nome " required>
+                </span>
+                    <span>
+                    <p>E-mail</p>
+                    <input type="email" placeholder="Seu e-mail " required>
+                </span>
+                    <span>
+                    <p>Mensagem</p>
+                    <textarea placeholder="Sua mensagem" required></textarea>
+                </span>
+                    <button type="submit">Enviar mensagem</button>
+                </form>
+            </div>
+            <div class="division"></div>
+            <p class="mobile-addon">Venha até nós!</p>
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d454.3997192366135!2d-51.529536943274344!3d-29.257006852143608!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951c178ed1e7c697%3A0xa6ae6bb7bcd3b3a5!2sBarbearia%20Brasil!5e1!3m2!1spt-BR!2sbr!4v1767735654414!5m2!1spt-BR!2sbr"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+
+        <!-- ================= FOOTER ================= -->
+        <footer id="goto">
+            <div class="info">
+                <div class="left">
+                    <span>
+                        <img src="static/marcador.png" alt="" loading="lazy">
+                        <div>
+                            <p>Av. Independência, 35 - Centro</p>
+                            <h2>Garibaldi, RS</h2>
+                        </div>
+                    </span>
+                    <span>
+                        <img src="static/chamada-telefonica.png" alt="" loading="lazy">
+                        <h2>+55 54 99999-9999</h2>
+                    </span>
+                    <span>
+                        <img src="static/envelope.png" alt="" loading="lazy">
+                        <a href="mailto:suporte@forcatotal.com.br">suporte@forcatotal.com.br</a>
+                    </span>
+                </div>
+                <div class="right">
+                    <h2>Sobre a Empresa</h2>
+                    <p>A Academia Força Total nasceu com o objetivo de ajudar pessoas a alcançarem saúde, bem-estar e qualidade de vida através do treino e da disciplina. </p>
+                    <ul>
+                        <li>
+                            <a class="github imagem" href="https://github.com/Zumbisinho"></a>
+                        </li>
+                        <li>
+                            <a class="whatssap imagem" href="https://wa.me/5554999999999"></a>
+                        </li>
+                        <li>
+                            <a class="face imagem" href="https://www.facebook.com/policiafederal/"></a>
+                        </li>
+                        <li>
+                            <a class="insta imagem" href="https://www.instagram.com/policiafederal/?locale=pt_BR"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <p class="copyright ">© 2025 Academia Força Total - Todos os direitos reservados</p>
+        </footer>
+    </main>
+    <script>
+        function goToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center',
+
+
+                });
+            }
+        }
+        window.addEventListener("load", function() {
+            const scrollElement = document.querySelector(".planos-container");
+            if (scrollElement) {
+                setTimeout(() => {
+                    scrollElement.scrollLeft = (scrollElement.scrollWidth - scrollElement.clientWidth) / 2;
+                }, 100)
+            }
+        });
+
+        function buyPlan(plan) {
+            const plans = ["none", "básico", "completo", "premium"]
+            if (!plans.includes(plan)) {
+                return 'Cannot downgrade plan!'
+            }
+            const data = {
+                plan: plan
+            }
+            alert('Por não estar em produção, a requesição de alterar plano se válida, será aceita, leia mais sobre no arquivo main.py')
+            fetch('../api/v1/change_plan', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data),
+                    credentials: 'include'
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if (data.status === 401) {
+                        window.location.href = '/login/'
+                    }
+                    if (data.status === 202) {
+                        alert('Plano adquirido com sucesso!')
+                        console.log('novo plano: ' + plan);
+                    }
+                    if (data.status === 409) {
+                        alert('Você não pode comprar o mesmo/pior plano!!')
+                        console.log('novo plano: ' + plan);
+                    }
+                });
+        }
+    </script>
+    <script src="../static/scripts/index.js"></script>
+
+</body>
+
+
+</html>

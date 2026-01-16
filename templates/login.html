@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Academia Força Total</title>
+
+    <!-- Fonte (opcional por enquanto) -->
+    <meta name="color-scheme" content="dark">
+    <link href="https://fonts.googleapis.com/css2?
+family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="../static/styles/header.css">
+    <link rel="stylesheet" href="../static/styles/colors.css">
+    <link rel="stylesheet" href="../static/styles/login.css">
+
+</head>
+
+<body>
+    <header>
+
+        <nav>
+            <span><h1 id="home" onclick="window.location.href='../'" >Força Total</h1><ul id="sectionList">
+                <li><a href='../#inicio'>Início</a></li>
+                <li><a href='../#sobre'>Sobre</a></li>
+                <li><a href='../#planos'>Planos</a></li>
+                <li><a href='../#treinos'>Treinos</a></li>
+                <li><a href='../#contato'>Contato</a></li>
+
+            </ul></span>
+            <ul>
+                <li>
+                    <a href="../register" class="login-button">Registrar</a>
+                </li>
+            </ul>
+
+        </nav>
+    </header>
+    <main>
+        <div class="bgimg" src="" alt=""></div>
+        <section>
+            <h2>Vamos voltar!</h2>
+            <form id="formulario" action="" autocomplete="off">
+                <span>
+                    <p>Nome/E-Mail</p>
+                    <input id="username" type="text" required autocomplete="off" placeholder="Nome ou E-mail">
+                </span>
+                <span>
+                    <p>Senha</p>
+                    <input id="password" type="password" required autocomplete="off" placeholder="Senha">
+                </span>
+                <p id="error-p" style="display: none;color: rgb(252, 124, 124);text-align: center;">errorp</p>
+                <span class="button-wrapper">
+                <button id="submitButton" type="submit">Entrar</button></span></form>
+
+            <p class="continue">Ou continue com</p>
+            <ul>
+                <li><button onclick="alert('Não implementado por conta de não ser um site registrado')"></button></li>
+                <li><button onclick="alert('Não implementado por conta de não ser um site registrado')"></button></li>
+
+            </ul>
+            <a href="../register/">
+                <span>Não tem conta? </span>Registre-se!</a>
+        </section>
+    </main>
+
+    <script src="../static/scripts/login.js"></script>
+</body>
+
+</html>
