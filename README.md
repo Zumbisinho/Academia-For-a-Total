@@ -224,7 +224,3 @@ Este projeto foi desenvolvido com cuidado para manter o código **legível, orga
 
 Se você está começando com Flask ou quer entender como funciona um sistema web completo, este repositório é um bom ponto de partida para estudar, modificar e evoluir.
 
----
-
-
-É só me dizer.
