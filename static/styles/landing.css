@@ -494,3 +494,102 @@ form p {
         font-size: 1.5rem;
     }
 }
+
+.notifications {
+    position: fixed;
+    z-index: 20;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+@keyframes on_entry {
+    from {
+        transform: translateY(-200px);
+        opacity: 0;
+        display: inline-block;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes on_exit {
+    from {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-200px);
+        opacity: 0;
+        display: none;
+    }
+}
+
+.exit-anim {
+    animation: on_exit 0.5s ease forwards !important;
+}
+
+.alert {
+    background-color: var(--dark-color);
+    min-width: 30vw;
+    max-width: 75vw;
+    padding: 16px 24px;
+    border-radius: 24px;
+    flex-grow: 0;
+    height: max-content;
+    margin-top: 40px;
+    transition: all 0.5s ease;
+    animation: on_entry 0.5s ease;
+    display: none;
+}
+
+.alert .division {
+    width: 100%;
+    height: 8px;
+    margin: 8px 0px;
+    background-color: #006000;
+    opacity: 0.7;
+}
+
+.alert h2 {
+    margin: 0px;
+    margin-left: 8px;
+}
+
+.alert p {
+    margin: 8px 0px;
+    margin-left: 8px;
+}
+
+.alert button {
+    padding: 8px 24px;
+    background-color: #fff;
+}
+
+.alert progress {
+    width: 100%;
+    margin-top: 8px;
+    border-radius: 24px;
+    height: 8px;
+}
+
+.alert progress::-webkit-progress-bar {
+    border-radius: 24px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.alert progress::-webkit-progress-value {
+    border-radius: 24px;
+    background-color: #003000;
+}
+
+.alert.alert-error progress::-webkit-progress-value {
+    background-color: rgb(85, 34, 34);
+}
+
+.alert.alert-error .division {
+    background-color: rgb(53, 22, 22);
+}

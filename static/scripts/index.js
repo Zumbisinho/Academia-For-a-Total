@@ -39,3 +39,56 @@ if (username != null) {
 
 
 }
+const queue = []
+let IsalertShowing = false
+async function createAlert(title, desc, timeout) {
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    const descArea = document.getElementById('alertDesc')
+    const progressbar = document.getElementById('alert-progress')
+    const titleArea = document.getElementById('alertName')
+    const alertContainer = document.getElementById('alert')
+    console.log(queue.length)
+    if (queue.length == 0 && !IsalertShowing) {
+        IsalertShowing = true
+        progressbar.setAttribute('value', 0)
+        alertContainer.style.display = 'inline-block'
+        alertContainer.classList.remove('exit-anim')
+        titleArea.innerText = title
+        descArea.innerText = desc
+        setInterval(() => {
+            progressbar.setAttribute('value', parseInt(progressbar.getAttribute('value')) + 1)
+        }, timeout * 10)
+        setTimeout(() => {
+            alertContainer.classList.add('exit-anim');
+            process()
+        }, timeout * 1000)
+        return
+    } else { queue.push([title, desc, timeout]) }
+
+
+
+    async function process() {
+        console.log(queue)
+        while (queue.length > 0) {
+
+            await sleep(0.5)
+            const Data = queue.shift()
+            const { Title, Desc, Timeout } = Data
+            progressbar.setAttribute('value', 0)
+            alertContainer.style.display = 'inline-block'
+            alertContainer.classList.remove('exit-anim')
+            titleArea.innerText = Title
+            descArea.innerText = Desc
+            setInterval(() => {
+                progressbar.setAttribute('value', parseInt(progressbar.getAttribute('value')) + 1)
+            }, Timeout * 10)
+            setTimeout(() => {
+                alertContainer.classList.add('exit-anim')
+            }, Timeout * 1000)
+            return
+        }
+    }
+
+}
