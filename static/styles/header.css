@@ -104,12 +104,52 @@ header .logged {
 header .logged-options {
     position: absolute;
     display: none;
-    top: 80px;
+    top: 90px;
     z-index: 2;
     background-color: var(--dark-color);
     padding: 8px 16px;
     border-radius: 16px;
+    border-color: rgba(255, 255, 255, 0.1);
+    border-style: solid;
+    border-width: 2PX;
     right: 16px;
+}
+
+header .logged-options h3 {
+    margin: 0;
+    color: var(--text-color-secondary);
+    font-size: 0.8rem;
+    font-weight: normal;
+}
+
+header .logged-options h2 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+header .plan-option div:first-child {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+header .plan-option div:first-child img {
+    height: auto;
+    width: 32px;
+    border-radius: 200px;
+}
+
+header .plan-option {
+    display: flex !important;
+    justify-content: start !important;
+    gap: 8PX !important;
+    padding: 8PX !important;
+    border-radius: 12px !important;
+    background-color: rgba(0, 0, 0, 0.25) !important;
+    border-color: rgba(255, 255, 255, 0.1);
+    border-style: solid;
+    border-width: 2PX;
 }
 
 header .logged-options span {
@@ -119,7 +159,11 @@ header .logged-options span {
     padding: 8px 16px;
     justify-content: center;
     align-items: center;
-    margin: 16px 0px;
+    margin: 8px 0px;
+}
+
+header .logged-options button {
+    padding: 8px 24px;
 }
 
 header .logged-options button {
@@ -136,7 +180,7 @@ header .delete-btn {
 
 header .logged-options img {
     aspect-ratio: 1;
-    height: 32px;
+    height: 24px;
     width: auto;
 }
 

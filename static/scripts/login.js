@@ -35,7 +35,11 @@ form.addEventListener('submit', (event) => {
     passwordInput.classList.remove('wrong')
     usernameInput.classList.remove('wrong')
     ErrorHandler.style.display = 'none'
-
+    if (VerifyForm() === "Password Too Weak!") {
+        passwordInput.classList.add('wrong')
+        ErrorHandler.style.display = 'inline-block'
+        ErrorHandler.innerText = "Senha deve conter no mínimo 8 caracteres e 1 número"
+    }
     if (VerifyForm() === true) {
         const inpute = usernameInput.value;
         const pw = passwordInput.value;

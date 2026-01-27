@@ -27,12 +27,7 @@ family=Poppins:wght@400;600&display=swap" rel="stylesheet">
             <span class="division"></span>
             <h2 id="alertName">Notification Name</h2>
             <p id="alertDesc">Notification Descdription</p>
-            <span class="actions-wrapper">
-                <button class="dismiss">Ok
 
-                </button> 
-
-            </span>
             <progress value="0" max="100" id="alert-progress"></progress>
         </section>
     </div>
@@ -62,6 +57,13 @@ family=Poppins:wght@400;600&display=swap" rel="stylesheet">
                         <h1 class="foto">T</h1>
                     </span>
                 <aside class="logged-options">
+                    <span class="plan-option">
+                        <div><img src="../static/check.png" alt=""></div>
+                        <div>
+                            <h3>Plano:</h3>
+                            <h2 id="plan-name">Nome</h2>
+                        </div>
+                    </span>
                     <span>
                         <img src="/static/saida.png" alt="" class="logout-img">
                         <button onclick="window.location.href='/api/v1/logout'">Logout</button></span>
@@ -334,6 +336,8 @@ family=Poppins:wght@400;600&display=swap" rel="stylesheet">
         </footer>
     </main>
     <script>
+        const planArea = document.getElementById('plan-name')
+
         function goToSection(id) {
             const element = document.getElementById(id);
             if (element) {
@@ -362,7 +366,7 @@ family=Poppins:wght@400;600&display=swap" rel="stylesheet">
             const data = {
                 plan: plan
             }
-            alert('Por não estar em produção, a requesição de alterar plano se válida, será aceita, leia mais sobre no arquivo main.py')
+            createAlert('Aviso para Produção', 'Por não estar em produção, a requesição de alterar plano se válida, será aceita, leia mais sobre no arquivo main.py', 6, 'info')
             fetch('../api/v1/change_plan', {
                     method: 'POST',
                     headers: {
@@ -373,17 +377,34 @@ family=Poppins:wght@400;600&display=swap" rel="stylesheet">
                 })
                 .then(res => res.json())
                 .then(data => {
+                    function capitalize(Text) {
+                        return Text.charAt(0).toUpperCase() + Text.slice(1)
+                    }
+
+                    function getSubscriptionEnding() {
+
+                        const future = new Date()
+                        future.setMonth(future.getMonth() + 1)
+
+                        const day = String(future.getDate()).padStart(2, '0')
+                        const month = String(future.getMonth() + 1).padStart(2, '0')
+                        const year = future.getFullYear()
+
+                        return `${day}/${month}/${year}`
+                    }
+
                     console.log(data)
                     if (data.status === 401) {
                         window.location.href = '/login/'
                     }
                     if (data.status === 202) {
-                        alert('Plano adquirido com sucesso!')
+                        createAlert('Plano adiquirido com sucesso!', `O plano ${capitalize(plan)} foi adiquirido com sucesso, aproveite seu plano até ${getSubscriptionEnding()}`, 4, 'success')
                         console.log('novo plano: ' + plan);
+                        planArea.innerText = plan
                     }
                     if (data.status === 409) {
-                        alert('Você não pode comprar o mesmo/pior plano!!')
-                        console.log('novo plano: ' + plan);
+                        createAlert('Erro ao adiquirir o plano', `Você não pode comprar um plano pior do que você já tem!`, 4, 'error')
+
                     }
                 });
         }

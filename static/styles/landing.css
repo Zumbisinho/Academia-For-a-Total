@@ -502,13 +502,14 @@ form p {
     width: 100vw;
     display: flex;
     justify-content: center;
+    user-select: none;
+    pointer-events: none;
 }
 
 @keyframes on_entry {
     from {
         transform: translateY(-200px);
         opacity: 0;
-        display: inline-block;
     }
     to {
         transform: translateY(0px);
@@ -533,17 +534,17 @@ form p {
 }
 
 .alert {
-    background-color: var(--dark-color);
+    display: none;
+    background-color: #343434;
     min-width: 30vw;
-    max-width: 75vw;
+    max-width: 400px;
     padding: 16px 24px;
     border-radius: 24px;
     flex-grow: 0;
     height: max-content;
-    margin-top: 40px;
+    margin-top: 24px;
     transition: all 0.5s ease;
     animation: on_entry 0.5s ease;
-    display: none;
 }
 
 .alert .division {
@@ -557,11 +558,14 @@ form p {
 .alert h2 {
     margin: 0px;
     margin-left: 8px;
+    text-transform: capitalize;
 }
 
 .alert p {
     margin: 8px 0px;
+    text-transform: capitalize;
     margin-left: 8px;
+    overflow-wrap: break-word;
 }
 
 .alert button {
@@ -573,7 +577,7 @@ form p {
     width: 100%;
     margin-top: 8px;
     border-radius: 24px;
-    height: 8px;
+    height: 6px;
 }
 
 .alert progress::-webkit-progress-bar {
@@ -592,4 +596,12 @@ form p {
 
 .alert.alert-error .division {
     background-color: rgb(53, 22, 22);
+}
+
+.alert.alert-info progress::-webkit-progress-value {
+    background-color: rgb(201, 181, 6);
+}
+
+.alert.alert-info .division {
+    background-color: rgb(107, 109, 12);
 }

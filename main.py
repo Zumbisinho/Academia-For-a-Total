@@ -12,6 +12,7 @@ def delete():
         resp = make_response(redirect('/'))
         resp.delete_cookie('token',path='/')
         resp.delete_cookie('username',path='/')
+        resp.delete_cookie('plan',path='/')
         return resp
     return jsonify({'status':401,'msg':'Not Logged In!'})
 
@@ -33,6 +34,7 @@ def lougut():
     resp = make_response(redirect('/'))
     resp.delete_cookie('token',path='/')
     resp.delete_cookie('username',path='/')
+    resp.delete_cookie('plan',path='/')
     return resp
 @app.route("/api/v1/register",methods=["POST"])
 def Reg():
@@ -48,6 +50,7 @@ def Reg():
         Token,Username = response['msg']['token'],response['msg']['username']
         resp.set_cookie('token',Token,(7*24*60*60),path='/',secure=False,httponly=True,samesite='Lax')
         resp.set_cookie('username',Username,(7*24*60*60),path='/',secure=False,httponly=False,samesite='Lax')
+        resp.set_cookie('plan','none',(7*24*60*60),path='/',secure=False,httponly=False,samesite='Lax')
         print('Definido',Username,Token)
         return resp
     return jsonify(response)
@@ -62,9 +65,10 @@ def Log():
     print(response)
     # ! Pratica não usada em produção, todos cookies devem ter o secure = true, mas para ambientes de local host, é nescessário os desativar
     if response['status'] == 202:
-        Token,Username = response['msg']['token'],response['msg']['username']
+        Token,Username,Plan = response['msg']['token'],response['msg']['username'],response['msg']['plan']
         resp.set_cookie('token',Token,(7*24*60*60),path='/',secure=False,httponly=True,samesite='Lax')
         resp.set_cookie('username',Username,(7*24*60*60),path='/',secure=False,httponly=False,samesite='Lax')
+        resp.set_cookie('plan',Plan,(7*24*60*60),path='/',secure=False,httponly=False,samesite='Lax')
         print('Definido',Username,Token)
         return resp
     return jsonify(response)

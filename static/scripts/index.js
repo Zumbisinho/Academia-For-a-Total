@@ -39,56 +39,60 @@ if (username != null) {
 
 
 }
+const planSection = document.getElementById('plan-name')
+const plan = getCookie('plan')
+console.log(plan)
+planSection.innerText = plan && plan !== 'none' ? plan : 'Nenhum'
+
 const queue = []
 let IsalertShowing = false
-async function createAlert(title, desc, timeout) {
-    function sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-    const descArea = document.getElementById('alertDesc')
-    const progressbar = document.getElementById('alert-progress')
-    const titleArea = document.getElementById('alertName')
-    const alertContainer = document.getElementById('alert')
-    console.log(queue.length)
-    if (queue.length == 0 && !IsalertShowing) {
-        IsalertShowing = true
-        progressbar.setAttribute('value', 0)
-        alertContainer.style.display = 'inline-block'
-        alertContainer.classList.remove('exit-anim')
-        titleArea.innerText = title
-        descArea.innerText = desc
-        setInterval(() => {
-            progressbar.setAttribute('value', parseInt(progressbar.getAttribute('value')) + 1)
-        }, timeout * 10)
-        setTimeout(() => {
-            alertContainer.classList.add('exit-anim');
-            process()
-        }, timeout * 1000)
-        return
-    } else { queue.push([title, desc, timeout]) }
-
-
-
+async function createAlert(title, desc, timeout, type) {
+    queue.push([title, desc, timeout, type])
+    if (!IsalertShowing) {
+        process()
+    } else {}
     async function process() {
-        console.log(queue)
-        while (queue.length > 0) {
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        const descArea = document.getElementById('alertDesc')
+        const progressbar = document.getElementById('alert-progress')
+        const titleArea = document.getElementById('alertName')
+        const alertContainer = document.getElementById('alert')
 
-            await sleep(0.5)
+        while (queue.length > 0) {
+            IsalertShowing = true
+
+            await sleep(500)
             const Data = queue.shift()
-            const { Title, Desc, Timeout } = Data
+            console.log(Data)
             progressbar.setAttribute('value', 0)
             alertContainer.style.display = 'inline-block'
             alertContainer.classList.remove('exit-anim')
-            titleArea.innerText = Title
-            descArea.innerText = Desc
-            setInterval(() => {
+            alertContainer.classList.remove('alert-error', 'alert-info')
+            titleArea.innerText = Data[0]
+            descArea.innerText = Data[1]
+            switch (Data[3]) {
+                case 'info':
+                    {
+                        alertContainer.classList.add('alert-info')
+                    }
+                case "error":
+                    {
+                        alertContainer.classList.add('alert-error')
+                    }
+            }
+            let progressloop = setInterval(() => {
                 progressbar.setAttribute('value', parseInt(progressbar.getAttribute('value')) + 1)
-            }, Timeout * 10)
+            }, Data[2] * 10)
             setTimeout(() => {
                 alertContainer.classList.add('exit-anim')
-            }, Timeout * 1000)
-            return
+                clearInterval(progressloop)
+            }, Data[2] * 1000)
+            await sleep(Data[2] * 1000)
+
         }
+        IsalertShowing = false
     }
 
 }

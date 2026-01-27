@@ -105,15 +105,16 @@ def login(input:str,pw:str):
     cursor = conn.cursor()
     hashpw = None
     userId = -1
+    plan = ''
     username = ''
     try:
         if input.find('@') != -1:
-            hashpw,userId,username = cursor.execute("SELECT password, id, username FROM users WHERE email = ?",(input,)).fetchone()
+            hashpw,userId,username,plan = cursor.execute("SELECT password, id, username,plan FROM users WHERE email = ?",(input,)).fetchone()
         else:
-            hashpw,userId,username = cursor.execute("SELECT password, id, username FROM users WHERE username = ?",(input,)).fetchone()
+            hashpw,userId,username,plan = cursor.execute("SELECT password, id, username,plan FROM users WHERE username = ?",(input,)).fetchone()
         if bcrypt.checkpw(bytes(pw,encoding='UTF-8'),hashpw):
             token = cursor.execute("SELECT token FROM sessions WHERE user_id = ?",(userId,)).fetchone()[0]
-            return Status(202,{'token':token,'username':username})
+            return Status(202,{'token':token,'username':username,'plan':plan})
         return Status(401,"Email/Nome ou senha estão incorretos!")
     except Exception as e:
         return Status(401,"Email/Nome ou senha estão incorretos!")
